@@ -13,4 +13,4 @@ A simple cached proxy server written in Python, packaged as a Docker container.
 docker run -d \
   -p 9191:9191 \
   -v ./cache:/cache \
-  ghcr.io/InfyDex/pub-mirror
+  ghcr.io/infydex/pub-mirror

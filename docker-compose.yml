@@ -1,6 +1,6 @@
 services:
   pub-mirror:
-    image: ghcr.io/InfyDex/pub-mirror:latest
+    image: ghcr.io/infydex/pub-mirror:latest
     container_name: pub-mirror
     ports:
       - "9191:9191"
