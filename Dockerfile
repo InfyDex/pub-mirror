@@ -1,20 +1,20 @@
+# Use official Python 3 image
 FROM python:3.11-slim
 
-# Avoid Python buffering issues
-ENV PYTHONUNBUFFERED=1
-
-# Create app directory
+# Set working directory
 WORKDIR /app
 
-# Copy your script
-COPY proxy_cached.py .
+# Copy code
+COPY pub_mirror/ /app
 
-# Create cache directory inside container
-RUN mkdir -p /cache
+# Copy requirements
+COPY requirements.txt /app
 
-# Expose the port
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose port
 EXPOSE 9191
 
-# Default command
-ENTRYPOINT ["python3", "proxy_cached.py"]
-CMD ["--host", "0.0.0.0", "--port", "9191", "--cache-dir", "/cache"]
+# Run your script
+CMD ["python3", "proxy_cached.py", "--host", "0.0.0.0", "--port", "9191", "--cache-dir", "/app/cache/srv/pub/packages"]
