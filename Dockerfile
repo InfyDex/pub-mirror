@@ -5,7 +5,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy code
-COPY pub_mirror/ /app
+COPY . /app
 
 # Copy requirements
 COPY requirements.txt /app
